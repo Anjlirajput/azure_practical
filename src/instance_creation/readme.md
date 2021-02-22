@@ -7,7 +7,7 @@ az vm image list -p "Microsoft" -all
 ssh-keygen -t rsa -b 2048 -f authorize_key
 
 #for connecting to ssh
-.... first change the mode of public key file 400 permission and then run
+chmod 400 ~/.ssh/authorize_key
 ssh -i ~/.ssh/authorize_key username@public_IP_VM
 
 #install the nginx on vm
