@@ -14,7 +14,3 @@ variable "location" {
 
 }
 
-variable "stageIp" {
-  type = list(string)
-  default = ["prod","dev"]
-}
