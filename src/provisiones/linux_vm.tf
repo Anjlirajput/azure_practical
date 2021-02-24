@@ -24,7 +24,7 @@ resource "azurerm_network_interface" "instance1_network_interface" {
 //now create a vm
 
 resource "azurerm_linux_virtual_machine" "linuxvm" {
-  admin_username = "rajput"
+  admin_username = var.username
   location = var.location
   name = var.resources_name.linux_vm_name
   network_interface_ids = [azurerm_network_interface.instance1_network_interface.id]
@@ -45,7 +45,7 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
   }
   //The Public Key which should be used for authentication, which needs to be at least 2048-bit
  admin_ssh_key {
-   username = "rajput"
+   username = var.username
    public_key =file("~/.ssh/authorize_key.pub")
 
  }
@@ -56,9 +56,9 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
   provisioner "local-exec" {
     connection {
       type     = "ssh"
-      user     = "root"
+      user     = var.username
       private_key=file("~/.ssh/authorize_key")
-      host     = "rajput"
+      host     = self.public_ip_address
     }
 
     command = "echo ${azurerm_linux_virtual_machine.linuxvm.public_ip_address} >> pub_ip.txt"
@@ -66,9 +66,9 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      user     = "root"
+      user     = var.username
       private_key=file("~/.ssh/authorize_key")
-      host     = "rajput"
+      host     = self.public_ip_address
       timeout = "3m"
     }
 
