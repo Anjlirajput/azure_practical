@@ -54,12 +54,6 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
 
 
   provisioner "local-exec" {
-    connection {
-      type     = "ssh"
-      user     = var.username
-      private_key=file("~/.ssh/authorize_key")
-      host     = self.public_ip_address
-    }
 
     command = "echo ${azurerm_linux_virtual_machine.linuxvm.public_ip_address} >> pub_ip.txt"
   }

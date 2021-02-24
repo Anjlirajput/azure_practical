@@ -6,6 +6,7 @@ provider "azurerm" {
 resource "azurerm_resource_group" "resource_instance1_creation" {
   location =var.location
   name = var.resources_name.group_name
+
 }
 
 resource "azurerm_virtual_network" "virtual_network_instance1" {
