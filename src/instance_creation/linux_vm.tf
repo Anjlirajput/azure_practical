@@ -54,6 +54,8 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
 }
 
 
-
+output "instance1_public_ip" {
+  value = azurerm_linux_virtual_machine.linuxvm.public_ip_address
+}
 
 
