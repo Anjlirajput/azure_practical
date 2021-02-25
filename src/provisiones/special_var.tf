@@ -9,6 +9,7 @@ variable "resources_name" {
     "linux_vm_name"="linuxvm"
 
   }
+
 }
 
 variable "location" {
