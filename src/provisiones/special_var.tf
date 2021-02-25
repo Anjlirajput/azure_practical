@@ -16,3 +16,9 @@ variable "location" {
   default = "eastus"
 
 }
+
+variable "username" {
+  type = string
+  default = "rajput"
+}
+# error executing "/tmp/terraform_532061438.sh": wait: remote command exited without exit status or exit signal
