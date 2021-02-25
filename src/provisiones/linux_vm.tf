@@ -68,7 +68,8 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
 
 
     inline=[
-      "echo 'welcome ' >> welcome.txt"
+      # "echo 'welcome ' >> welcome.txt"
+      "sudo apt-get install nginx -y"
     ]
   }
 
