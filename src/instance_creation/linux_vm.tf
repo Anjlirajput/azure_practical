@@ -48,6 +48,7 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
    username = "rajput"
    public_key =file("mykey.pub")
 
+
  }
 
 
