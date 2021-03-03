@@ -5,6 +5,7 @@ resource "azurerm_public_ip" "instance1_public_address" {
   location = var.location
   name =var.resources_name.public_ip_name
   resource_group_name =azurerm_resource_group.resource_instance1_creation.name
+
 }
 
 
