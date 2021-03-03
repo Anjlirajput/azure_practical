@@ -14,7 +14,6 @@ resource "random_string" "random-name" {
 resource "azurerm_resource_group" "keygroup" {
   location =var.location
   name = var.rgp_name
-
 }
 
 data "azurerm_client_config" "current" {}
