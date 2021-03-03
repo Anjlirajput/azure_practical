@@ -46,7 +46,7 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
   //The Public Key which should be used for authentication, which needs to be at least 2048-bit
  admin_ssh_key {
    username = "rajput"
-   public_key =file("~/.ssh/authorize_key.pub")
+   public_key =file("mykey.pub")
 
  }
 
