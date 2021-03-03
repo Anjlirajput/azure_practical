@@ -5,6 +5,7 @@ resource "azurerm_public_ip" "instance1_public_address" {
   location = var.location
   name =var.resources_name.public_ip_name
   resource_group_name =azurerm_resource_group.resource_instance1_creation.name
+
 }
 
 
@@ -46,7 +47,8 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
   //The Public Key which should be used for authentication, which needs to be at least 2048-bit
  admin_ssh_key {
    username = "rajput"
-   public_key =file("~/.ssh/authorize_key.pub")
+   public_key =file("mykey.pub")
+
 
  }
 
