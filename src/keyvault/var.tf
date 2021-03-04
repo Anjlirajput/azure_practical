@@ -1,16 +1,17 @@
 variable "rgp_name" {
-  type = "string"
+  type    = string
   default = "keygroup"
 
 }
 variable "key_vault_name" {
-  type = "string"
+  type    = string
   default = "mykeyvault"
 }
 
 
 variable "location" {
-  type = "string"
+  type    = string
   default = "eastus"
 
 }
+

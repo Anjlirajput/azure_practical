@@ -20,7 +20,7 @@ data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "keygroup" {
   location = var.location
-  name ="${random_string.random-name.result}${var.key_vault_name}"
+  name ="${var.key_vault_name}${random_string.random-name.result}"
   resource_group_name = azurerm_resource_group.keygroup.name
   sku_name = "standard"
   tenant_id = data.azurerm_client_config.current.tenant_id
@@ -30,7 +30,7 @@ resource "azurerm_key_vault" "keygroup" {
     object_id = data.azurerm_client_config.current.object_id
 
     key_permissions = [
-      "Get","List","Create","Update","Delete",
+      "Get","List","Create","Update","Delete","import",
     ]
 
     secret_permissions = [
